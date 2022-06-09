@@ -72,6 +72,51 @@ export default function HashingComponent() {
 
 	// For handling algorithm change
 	const handleAlgorithmChange = async (e) => {
+		// Get the selected algorithm
+		let value = e.target.value;
+
+		let result = '';
+
+		// Check if we have a text input
+		if (text_input) {
+
+			// Hash the text based on the selected algorithm
+			if (value == 'sha1') {
+				result = await sha1(text_input);
+			} else if (value == 'sha256') {
+				result = await sha256(text_input);
+			}
+			else if (value == 'sha384') {
+				result = await sha384(text_input);
+			}
+			else if (value == 'sha512') {
+				result = await sha512(text_input);
+			}
+
+		}
+
+		// Check if we have a file input
+		if (file_input) {
+
+			// Hash the file content based on the selected algorithm
+			if (value == 'sha1') {
+				result = await sha1(file_input);
+			} else if (value == 'sha256') {
+				result = await sha256(file_input);
+			} else if (value == 'sha384') {
+				result = await sha384(file_input);
+			} else if (value == 'sha512') {
+				result = await sha512(file_input);
+			}
+
+		}
+
+		// Set the selected algorithm
+		setAlgorithm(value);
+
+		// Set the hashed text
+		setOutput(result);
+
 	};
 
 
