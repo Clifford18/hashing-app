@@ -37,8 +37,37 @@ export default function HashingComponent() {
 		setTextInput(value);
 	};
 
+
   	// For handling file input
 	const handleFileInput = (e) => {
+		// Initializing the file reader
+		const fr = new FileReader();
+
+		// Listening to when the file has been read.
+		fr.onload = async () => {
+
+			let result = '';
+
+			// Hashing the content based on the active algorithm
+			if (algorithm == 'sha1') {
+				result = await sha1(fr.result);
+			} else if (algorithm == 'sha256') {
+				result = await sha256(fr.result);
+			} else if (algorithm == 'sha384') {
+				result = await sha384(fr.result);
+			} else if (algorithm == 'sha512') {
+				result = await sha512(fr.result);
+			}
+
+			// Setting the hashed text as the output
+			setOutput(result);
+
+			// Setting the content of the file as file input
+			setFileInput(fr.result);
+		}
+
+		// Reading the file.
+		fr.readAsText(e.target.files[0]);
 	};
 
 	// For handling algorithm change
