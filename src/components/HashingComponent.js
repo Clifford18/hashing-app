@@ -14,6 +14,27 @@ export default function HashingComponent() {
 	//set up on change handlers
 	// For handling text input
 	const handleTextInput = async (e) => {
+		// Get the value
+		let value = e.target.value;
+
+		let result = '';
+
+		// Get the current active algorithm and hash the value using it.
+		if (algorithm == 'sha1') {
+			result = await sha1(value);
+		} else if (algorithm == 'sha256') {
+			result = await sha256(value);
+		} else if (algorithm == 'sha384') {
+			result = await sha384(value);
+		} else if (algorithm == 'sha512') {
+			result = await sha512(value);
+		}
+
+		// Set the hashed text as output
+		setOutput(result);
+
+		// Set the value of the text input
+		setTextInput(value);
 	};
 
   	// For handling file input
