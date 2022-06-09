@@ -64,7 +64,17 @@ export default function HashingComponent() {
 					</div>
 				</div>
 				// End: Hashing algorithms
-
+				
+				// Start: Hashed output
+				<div className="hashed-output">
+					<h4 className="hashed-algorithm-heading">Output</h4>
+					<div className="hashed-algorithm-container">
+						<p className="hashed-algorithm-text">
+							{output}
+						</p>
+					</div>
+				</div>
+				// End: Hashed output
 
 			</div>
 		</div>
