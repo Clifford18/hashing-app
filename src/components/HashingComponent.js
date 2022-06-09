@@ -29,7 +29,8 @@ export default function HashingComponent() {
 		<div className='hashing-container'>
 			<div className='hashing-content'>
 
-				// Start: Hashing form
+				{/*Start: Hashing form*/}
+
 				<div className="hashing-form">
 					<h4 className="hashing-form-heading">Input</h4>
 					<form>
@@ -43,9 +44,10 @@ export default function HashingComponent() {
 						</div>
 					</form>
 				</div>
-				// End: Hashing form
 
-				// Start: Hashing algorithms
+				{/*// End: Hashing form*/}
+
+				{/*// Start: Hashing algorithms*/}
 				<div className="hashing-algorithms">
 					<h4 className="hashing-algorithms-heading">Algorithms</h4>
 					<div className="hashing-algorithms-list">
@@ -63,9 +65,9 @@ export default function HashingComponent() {
 							)}
 					</div>
 				</div>
-				// End: Hashing algorithms
-				
-				// Start: Hashed output
+				{/*// End: Hashing algorithms*/}
+
+				{/*Start: Hashed output*/}
 				<div className="hashed-output">
 					<h4 className="hashed-algorithm-heading">Output</h4>
 					<div className="hashed-algorithm-container">
@@ -74,7 +76,7 @@ export default function HashingComponent() {
 						</p>
 					</div>
 				</div>
-				// End: Hashed output
+				{/*// End: Hashed output*/}
 
 			</div>
 		</div>
