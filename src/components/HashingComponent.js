@@ -45,6 +45,27 @@ export default function HashingComponent() {
 				</div>
 				// End: Hashing form
 
+				// Start: Hashing algorithms
+				<div className="hashing-algorithms">
+					<h4 className="hashing-algorithms-heading">Algorithms</h4>
+					<div className="hashing-algorithms-list">
+						{
+							algorithms.map(algo => {
+									return (
+										<div className="form-check" key={algo}>
+											<input className="form-check-input" type="radio" name="algorithm" id={algo} value={algo} checked={algorithm === algo} onChange={handleAlgorithmChange} />
+											<label className="form-check-label" htmlFor={algo}>
+												{algo}
+											</label>
+										</div>
+									)
+								}
+							)}
+					</div>
+				</div>
+				// End: Hashing algorithms
+
+
 			</div>
 		</div>
 	);
