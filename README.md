@@ -4,11 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Technologies Used
 - React
+- crypto-hash - version 2.0.1
 
 ## Packages installed
 
 - npx create-react-app my-app
-- npm i 
+- npm i crypto-hash
 
 ## Available Scripts
 
