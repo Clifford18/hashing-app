@@ -8,7 +8,7 @@ export default function HashingComponent() {
 	const [algorithms] = useState(['sha1', 'sha256', 'sha384', 'sha512']);
 	let [text_input, setTextInput] = useState('');
 	let [file_input, setFileInput] = useState('');
-	let [algorithm, setAlgorithm] = useState('sha1');
+	let [algorithm, setAlgorithm] = useState('sha256');
 	let [output, setOutput] = useState('');
 
 	//set up on change handlers
@@ -84,7 +84,7 @@ export default function HashingComponent() {
 			if (value == 'sha1') {
 				result = await sha1(text_input);
 			} else if (value == 'sha256') {
-				result = await sha256(text_input);
+				result = ((await sha256(text_input)).toLowerCase()).toString('base64');
 			}
 			else if (value == 'sha384') {
 				result = await sha384(text_input);
