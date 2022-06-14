@@ -1,8 +1,7 @@
 
-// const {sha256} = require ("crypto-hash");
 
 
-var decodedStringBtoA = 'Hello World!';
+var decodedStringBtoA = 'Pa%%w0rd';
 
 // Encode the String
 var encodedStringBtoA = btoa(decodedStringBtoA);
