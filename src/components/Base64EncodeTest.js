@@ -1,7 +1,5 @@
 
-
-
-var decodedStringBtoA = 'Pa%%w0rd';
+var decodedStringBtoA = 'Clifford Karani';
 
 // Encode the String
 var encodedStringBtoA = btoa(decodedStringBtoA);
