@@ -3,7 +3,7 @@
 
 
 import {sha256} from "crypto-hash";
-import {ComputeAuthHashComponent} from "./ComputePassword.js";
+import {ComputeAuthHashComponent} from "./ComputeAuthHashComponent.js";
 
 console.log("Hello world!");
 
