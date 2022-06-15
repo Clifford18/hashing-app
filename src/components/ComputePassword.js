@@ -1,5 +1,7 @@
 import {sha256} from "crypto-hash";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
+import {willSha256} from "./SHA256.js";
+
 
 let password = "Sky@2022!";
 
@@ -9,7 +11,7 @@ shaPassword = (await sha256(password))
 
 console.log("shaPassword", shaPassword)
 
-let Username ="johnkarani@skyworld.co.ke";
+let Username ="johnkarani@skyworld.co.ke::";
 
 let result =" ";
 result = Username.concat(shaPassword)
@@ -40,9 +42,9 @@ console.log("sync hash:", hash)
 
 
 
-const computeAuthHash = (username, password) => {
+const computeAuthHash = async (username, password) => {
 	// base64Encode(bCrypt(username::lower(SHA256(password)))
-	return btoa(bcrypt.hashSync(`${username}::${(sha256(password))}`, saltRounds))
+	return btoa(bcrypt.hashSync(`${username}::${(await sha256(password))}`, saltRounds))
 }
 
 async function asyncComputeAuthHash  (username, password)  {
@@ -51,10 +53,18 @@ async function asyncComputeAuthHash  (username, password)  {
 	const sha256Password = await sha256(password);
 	const bcryptHash = await bcrypt.hash(`${username}::${sha256Password}`, saltRounds);
 
-	return await btoa(bcryptHash)
+	return btoa(bcryptHash)
 }
 
 // JDJhJDEwJHFqODFWV2J6UW5YQVFoUGx0TlRjZU93bmNob0ZvMEgzMlBHSDRQU0N5R2dFVGhsbkNSbnpt
 
-console.log("computeAuthHash hash1:", computeAuthHash('william.ochomo@skyworld.co.ke', 'Sky2019$'))
-console.log("computeAuthHash hash:", await asyncComputeAuthHash('johnkarani@skyworld.co.ke', 'Sky@2022!'))
+console.log("computeAuthHash hash1:", await computeAuthHash('johnkarani@skyworld.co.ke', 'Sky@2022!'))
+console.log("computeAuthHash hash:", await asyncComputeAuthHash('johnkarani@skyworld.co.ke', 'Sky@2022!'));
+
+function computeAuthHash2   (username, password, callBack) {
+
+	return bcrypt.hash(`${username}::${willSha256(password)}`, saltRounds, callBack);
+}
+computeAuthHash2('johnkarani@skyworld.co.ke', 'Sky@2022!', (err, finalHash) => {
+	console.log('auth_hash ', btoa(finalHash))
+})
