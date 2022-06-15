@@ -6,12 +6,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - React
 - crypto-hash - version 2.0.1
 - bcrypt - version 5.0.1
+- bcryptjs -version 2.4.3
 
 ## Packages installed
 
 - npx create-react-app my-app
 - npm i crypto-hash
 - npm i bcrypt
+- npm i bycryptjs
+- 
 
 ## Available Scripts
 
